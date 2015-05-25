@@ -14,7 +14,8 @@
   "author": "Oliver Caldwell <olliec87@gmail.com>",
   "license": "Unlicense",
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
   },
   "repository": {
     "type": "git",
