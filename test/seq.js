@@ -26,26 +26,26 @@ describe('seq', function () {
 
     describe('rest', function () {
         it('should return the rest of the items', function () {
-            assert.equal(larr.rest(seq), ['bar', 'baz']);
+            assert.deepEqual(larr.rest(seq), ['bar', 'baz']);
         });
 
         it('should retun an empty array when given an empty array or null', function () {
-            assert.equal(larr.rest([]), []);
-            assert.equal(larr.rest(null), []);
+            assert.deepEqual(larr.rest([]), []);
+            assert.deepEqual(larr.rest(null), []);
         });
 
         it('should return an empty array if given a array of length 1', function () {
-            assert.equal(larr.rest(['foo']), []);
+            assert.deepEqual(larr.rest(['foo']), []);
         });
     });
 
     describe('cons', function () {
         it('should return an array with the value prepended', function () {
-            assert.equal(larr.cons('pre', seq), ['pre'].concat(seq));
+            assert.deepEqual(larr.cons('pre', seq), ['pre'].concat(seq));
         });
 
         it('should still return an array when the tail is null', function () {
-            assert.equal(larr.cons('pre', null), ['pre']);
+            assert.deepEqual(larr.cons('pre', null), ['pre']);
         });
     });
 });
