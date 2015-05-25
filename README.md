@@ -1,4 +1,4 @@
-**This is a work in progress, I'm going to [write a post on it][blog] when done.**
+*This is a work in progress, I'm going to [write a post on it][blog] when done.*
 
 JavaScript lazy arrays, sort of like [Clojure's seqs][seqs].
 
