@@ -7,7 +7,7 @@
  * @return {Boolean}
  */
 function isArray(subject) {
-    return Object.prototype.toString.call(subject) === '[object Array]';
+    return Array.isArray(subject);
 }
 
 /**
