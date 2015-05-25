@@ -58,10 +58,55 @@ function cons(item, list) {
     }
 }
 
+/**
+ * Fetches the second head.
+ *
+ * @param {*[]} list
+ * @return {*} Second item.
+ */
+function second(list) {
+    return first(rest(list));
+}
+
+/**
+ * Fetches the nth result.
+ *
+ * @param {*[]} list
+ * @param {Number} n
+ * @return {*}
+ */
+function nth(list, n) {
+    var cur = list;
+
+    // I would have made this recursive if JavaScript had tail call optimisations.
+    for (var i = 0; i < n; i++) {
+        cur = rest(cur);
+    }
+
+    return first(cur);
+}
+
+/**
+ * Returns a lazy array which is limited to the given length.
+ */
+function take(n, list) {
+    return create(function () {
+        if (n >= 0) {
+            return cons(first(list), take(n - 1, rest(list)));
+        }
+        else {
+            return [null];
+        }
+    });
+}
+
 module.exports = {
     LazyArray: LazyArray,
     create: create,
     first: first,
     rest: rest,
-    cons: cons
+    cons: cons,
+    second: second,
+    nth: nth,
+    take: take
 };
