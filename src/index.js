@@ -42,6 +42,7 @@ function cons(item, list) {
 }
 
 module.exports = {
+    isArray: isArray,
     first: first,
     rest: rest,
     cons: cons

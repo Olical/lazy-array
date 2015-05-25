@@ -1,11 +1,10 @@
-// Functions that satisfy the Clojure sequence interface.
-// http://clojure.org/sequences
-
 'use strict';
 
 var assert = require('assert');
 var larr = require('..');
 
+// Functions that satisfy the Clojure sequence interface.
+// http://clojure.org/sequences
 describe('seq', function () {
     var seq;
 
@@ -47,5 +46,16 @@ describe('seq', function () {
         it('should still return an array when the tail is null', function () {
             assert.deepEqual(larr.cons('pre', null), ['pre']);
         });
+    });
+});
+
+describe('isArray', function () {
+    it('returns true when given an array', function () {
+        assert(larr.isArray([]));
+    });
+
+    it('returns false when given a object or null', function () {
+        assert(!larr.isArray({}));
+        assert(!larr.isArray(null));
     });
 });
