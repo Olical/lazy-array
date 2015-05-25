@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/Wolfy87/lazy-array/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.9.2"
   }
 }
