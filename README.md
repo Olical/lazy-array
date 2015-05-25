@@ -35,7 +35,8 @@ larr.first(plainArray); // 'foo'
 larr.rest(plainArray); // ['bar', 'baz'];
 larr.cons('pre', plainArray); // ['pre', 'foo', 'bar', 'baz']
 
-// Allows you to operate on infinite sequences of values which are only calculated when requested.
+// Allows you to operate on infinite sequences of values which are only
+// calculated when requested.
 larr.nth(positiveNumbers(10), 15); // 25
 ```
 
