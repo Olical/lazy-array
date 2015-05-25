@@ -48,15 +48,3 @@ describe('seq', function () {
         });
     });
 });
-
-// Just a helper function to identify actual arrays.
-describe('isArray', function () {
-    it('returns true when given an array', function () {
-        assert(larr.isArray([]));
-    });
-
-    it('returns false when given a object or null', function () {
-        assert(!larr.isArray({}));
-        assert(!larr.isArray(null));
-    });
-});
