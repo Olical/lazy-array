@@ -2,18 +2,7 @@
 
 var assert = require('assert');
 var larr = require('..');
-
-/**
- * Creates a lazy sequence of all integers larger than n.
- *
- * @param {Number} n Starting integer.
- * @return {LazySequence}
- */
-function positiveNumbers(n) {
-    return larr.create(function () {
-        return larr.cons(n, positiveNumbers(n + 1));
-    });
-}
+var positiveNumbers = require('./utils/positiveNumbers');
 
 // Using the seq functions with a LazySeq argument.
 describe('lazy-seq', function () {
