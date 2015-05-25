@@ -1,14 +1,26 @@
 {
   "name": "lazy-array",
   "version": "1.0.0",
-  "description": "Lazy array implementation, sort of like Clojure's lazy-seq.",
+  "description": "Lazy array implementation, sort of like Clojure's seq",
+  "keywords": [
+    "lazy",
+    "array",
+    "sequence"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Oliver Caldwell <olliec87@gmail.com>",
+  "license": "Unlicense",
   "devDependencies": {
     "mocha": "^2.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wolfy87/lazy-array"
+  },
+  "bugs": {
+    "url": "https://github.com/Wolfy87/lazy-array/issues"
   }
 }
