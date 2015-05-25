@@ -47,4 +47,10 @@ describe('seq', function () {
             assert.deepEqual(larr.cons('pre', null), ['pre']);
         });
     });
+
+    describe('nth', function () {
+        it('should allow higher level functions to work with plain arrays', function () {
+            assert.equal(larr.nth(seq, 2), 'baz');
+        });
+    });
 });

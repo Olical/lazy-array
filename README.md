@@ -15,11 +15,28 @@ Check the tests and source JSDoc for more information, but here's a quick exampl
 ```javascript
 var larr = require('lazy-array');
 
-var seq = ['foo', 'bar', 'baz'];
+var plainArray = ['foo', 'bar', 'baz'];
 
-larr.first(seq); // 'foo'
-larr.rest(seq); // ['bar', 'baz'];
-larr.cons('pre', seq); // ['pre', 'foo', 'bar', 'baz']
+/**
+ * Creates a lazy sequence of all integers larger than n.
+ *
+ * @param {Number} n Starting integer.
+ * @return {LazySequence}
+ */
+function positiveNumbers(n) {
+    return larr.create(function () {
+        return larr.cons(n, positiveNumbers(n + 1));
+    });
+}
+
+// The functions work on plain arrays since they're all built on the core seq
+// functions (cons, first and rest) which work on plain or lazy arrays.
+larr.first(plainArray); // 'foo'
+larr.rest(plainArray); // ['bar', 'baz'];
+larr.cons('pre', plainArray); // ['pre', 'foo', 'bar', 'baz']
+
+// Allows you to operate on infinite sequences of values which are only calculated when requested.
+larr.nth(positiveNumbers(10), 15); // 25
 ```
 
 ## Unlicenced
