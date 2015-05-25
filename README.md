@@ -1,3 +1,5 @@
+**This is a work in progress, I'm going to [write a post on it][blog] when done.**
+
 JavaScript lazy arrays, sort of like [Clojure's seqs][seqs].
 
 ```bash
@@ -32,3 +34,4 @@ Do what you want. Learn as much as you can. Unlicense more software.
 
 [unlicense]: http://unlicense.org/
 [seqs]: http://clojure.org/sequences
+[blog]: http://oli.me.uk/
