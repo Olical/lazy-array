@@ -8,6 +8,18 @@ npm install
 npm test
 ```
 
+Check the tests and source JSDoc for more information, but here's a quick example.
+
+```javascript
+var larr = require('lazy-array');
+
+var seq = ['foo', 'bar', 'baz'];
+
+larr.first(seq); // 'foo'
+larr.rest(seq); // ['bar', 'baz'];
+larr.cons('pre', seq); // ['pre', 'foo', 'bar', 'baz']
+```
+
 ## Unlicenced
 
 Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
