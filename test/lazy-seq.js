@@ -14,24 +14,24 @@ describe('lazy-seq', function () {
 
     describe('first', function () {
         it('should resolve the first value', function () {
-            assert.equal(larr.first(lseq), 10);
+            assert.strictEqual(larr.first(lseq), 10);
         });
     });
 
     describe('rest', function () {
         it('returns a lazy-seq, effectively "second"', function () {
-            assert.equal(larr.first(larr.rest(lseq)), 11);
+            assert.strictEqual(larr.first(larr.rest(lseq)), 11);
         });
 
         it('returns third after two rests', function () {
-            assert.equal(larr.first(larr.rest(larr.rest(lseq))), 12);
+            assert.strictEqual(larr.first(larr.rest(larr.rest(lseq))), 12);
         });
     });
 
     describe('cons', function () {
         it('creates a value/LazyArray pair when consing to an instance', function () {
             var consed = larr.cons('foo', larr.create());
-            assert.equal(consed[0], 'foo');
+            assert.strictEqual(consed[0], 'foo');
             assert(larr.LazyArray.isLazyArray(consed[1]));
         });
     });
@@ -45,7 +45,7 @@ describe('lazy-seq', function () {
         });
 
         it('holds the function', function () {
-            assert.equal(instance.fn, fn);
+            assert.strictEqual(instance.fn, fn);
         });
 
         it('allows you to test if something is a lazy array', function () {

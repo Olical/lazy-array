@@ -14,12 +14,12 @@ describe('seq', function () {
 
     describe('first', function () {
         it('should return the first item', function () {
-            assert.equal(larr.first(seq), 'foo');
+            assert.strictEqual(larr.first(seq), 'foo');
         });
 
-        it('should return null when given an empty array or null', function () {
-            assert.equal(larr.first([]), null);
-            assert.equal(larr.first(null), null);
+        it('should return undefined when given an empty array or null', function () {
+            assert.strictEqual(larr.first([]), undefined);
+            assert.strictEqual(larr.first(null), undefined);
         });
     });
 
@@ -50,7 +50,7 @@ describe('seq', function () {
 
     describe('nth', function () {
         it('should allow higher level functions to work with plain arrays', function () {
-            assert.equal(larr.nth(seq, 2), 'baz');
+            assert.strictEqual(larr.nth(seq, 2), 'baz');
         });
     });
 });

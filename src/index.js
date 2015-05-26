@@ -22,7 +22,7 @@ function first(list) {
         return list.fn()[0];
     }
     else {
-        return Array.isArray(list) ? list[0] : null;
+        return Array.isArray(list) ? list[0] : undefined;
     }
 }
 

@@ -15,27 +15,27 @@ describe('seq-more', function () {
 
     describe('second', function () {
         it('fetches the second result', function () {
-            assert.equal(larr.second(lseq), 11);
+            assert.strictEqual(larr.second(lseq), 11);
         });
     });
 
     describe('nth', function () {
         it('fetches the nth result', function () {
-            assert.equal(larr.nth(lseq, 20), 30);
+            assert.strictEqual(larr.nth(lseq, 20), 30);
         });
     });
 
     describe('take', function () {
         it('returns a lazy array with the length capped', function () {
             var t = larr.take(10, lseq);
-            assert.equal(larr.nth(t, 5), 15);
-            assert.equal(larr.nth(t, 10), 20);
-            assert.equal(larr.nth(t, 11), null);
+            assert.strictEqual(larr.nth(t, 5), 15);
+            assert.strictEqual(larr.nth(t, 10), 20);
+            assert.strictEqual(larr.nth(t, 11), undefined);
         });
 
         it('taking from an empty array yields an empty array', function () {
             var t = larr.take(5, []);
-            assert.equal(larr.nth(t, 2), null);
+            assert.strictEqual(larr.nth(t, 2), undefined);
         });
     });
 
@@ -53,11 +53,11 @@ describe('seq-more', function () {
     describe('last', function () {
         it('fetches the last value', function () {
             var t = larr.take(5, lseq);
-            assert.equal(larr.last(t), 15);
+            assert.strictEqual(larr.last(t), 15);
         });
 
-        it('returns null if the sequence is empty', function () {
-            assert.equal(larr.last([]), null);
+        it('returns undefined if the sequence is empty', function () {
+            assert.strictEqual(larr.last([]), undefined);
         });
     });
 });
