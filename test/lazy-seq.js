@@ -44,10 +44,6 @@ describe('lazy-seq', function () {
             instance = new larr.LazyArray(fn);
         });
 
-        it('holds the function', function () {
-            assert.strictEqual(instance.fn, fn);
-        });
-
         it('allows you to test if something is a lazy array', function () {
             assert(larr.LazyArray.isLazyArray(instance));
         });

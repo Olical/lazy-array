@@ -8,8 +8,21 @@
  * @param {Function} fn Generator.
  */
 function LazyArray(fn) {
-    this.fn = fn;
+    this._fn = fn;
 }
+
+/**
+ * Executes the contained function, caches the result.
+ *
+ * @return {*}
+ */
+LazyArray.prototype.fn = function () {
+    if (!this.hasOwnProperty('_cache')) {
+        this._cache = this._fn();
+    }
+
+    return this._cache;
+};
 
 /**
  * Tests if the given value is a lazy array.
