@@ -32,5 +32,10 @@ describe('seq-more', function () {
             assert.equal(larr.nth(t, 10), 20);
             assert.equal(larr.nth(t, 11), null);
         });
+
+        it('taking from an empty array yields an empty array', function () {
+            var t = larr.take(5, []);
+            assert.equal(larr.nth(t, 2), null);
+        });
     });
 });

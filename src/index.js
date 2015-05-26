@@ -95,7 +95,7 @@ function take(n, list) {
             return cons(first(list), take(n - 1, rest(list)));
         }
         else {
-            return [null];
+            return [];
         }
     });
 }
