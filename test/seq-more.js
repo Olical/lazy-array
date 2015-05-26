@@ -38,4 +38,15 @@ describe('seq-more', function () {
             assert.equal(larr.nth(t, 2), null);
         });
     });
+
+    describe('all', function () {
+        it('resolves all possible values', function () {
+            var t = larr.take(5, lseq);
+            assert.deepEqual(larr.all(t), [10, 11, 12, 13, 14, 15]);
+        });
+
+        it('resolves normal arrays to normal arrays', function () {
+            assert.deepEqual(larr.all([0, 1, 2]), [0, 1, 2]);
+        });
+    });
 });

@@ -104,6 +104,29 @@ function take(n, list) {
     });
 }
 
+/**
+ * Realises all value in a lazy sequence. Will stop when there's nothing else
+ * to resolve. Be careful, this will run forever if the sequence keeps
+ * returning more lazy sequences.
+ *
+ * Will stop when first is undefined.
+ *
+ * @param {*[]} list
+ * @return {*[]}
+ */
+function all(list) {
+    var results = [];
+    var cur = list;
+    var head;
+
+    while (typeof (head = first(cur)) !== 'undefined') {
+        results.push(head);
+        cur = rest(cur);
+    }
+
+    return results;
+}
+
 module.exports = {
     LazyArray: LazyArray,
     create: create,
@@ -112,5 +135,6 @@ module.exports = {
     cons: cons,
     second: second,
     nth: nth,
-    take: take
+    take: take,
+    all: all
 };
