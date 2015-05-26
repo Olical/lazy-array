@@ -1,5 +1,3 @@
-*This is a work in progress, I'm going to [write a post on it][blog] when done.*
-
 JavaScript lazy arrays, sort of like [Clojure's seqs][seqs]. Lazy sequences can be thought of being a bit like [a traditional list cons cell][cons-post].
 
 ```bash
@@ -10,7 +8,7 @@ npm install
 npm test
 ```
 
-Check the tests and source JSDoc for more information, but here's a quick example.
+Check the tests and source (`lazy-array.js`) JSDoc for more information, here's a quick example.
 
 ```javascript
 var larr = require('lazy-array');
@@ -44,6 +42,8 @@ var nums = positiveNumbers(1);
 larr.all(larr.take(3, larr.drop(5, nums))); // [6, 7, 8]
 ```
 
+The script is wrapped in a [UMD][] so you can require it with RequireJS or node.
+
 ## Unlicenced
 
 Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
@@ -58,3 +58,4 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [seqs]: http://clojure.org/sequences
 [blog]: http://oli.me.uk/
 [cons-post]: http://theatticlight.net/posts/Lazy-Sequences-in-Clojure/
+[UMD]: https://github.com/umdjs/umd
