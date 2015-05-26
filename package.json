@@ -7,7 +7,7 @@
     "array",
     "sequence"
   ],
-  "main": "src/index.js",
+  "main": "lazy-array.js",
   "scripts": {
     "test": "mocha test/*.js"
   },
