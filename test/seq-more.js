@@ -29,7 +29,7 @@ describe('seq-more', function () {
         it('returns a lazy array with the length capped', function () {
             var t = larr.take(10, lseq);
             assert.strictEqual(larr.nth(t, 5), 15);
-            assert.strictEqual(larr.nth(t, 10), 20);
+            assert.strictEqual(larr.nth(t, 9), 19);
             assert.strictEqual(larr.nth(t, 11), undefined);
         });
 
@@ -37,12 +37,18 @@ describe('seq-more', function () {
             var t = larr.take(5, []);
             assert.strictEqual(larr.nth(t, 2), undefined);
         });
+
+        it('plays well with drop', function () {
+            var nums = positiveNumbers(1);
+            var res = larr.all(larr.take(3, larr.drop(5, nums)));
+            assert.deepEqual(res, [6, 7, 8]);
+        });
     });
 
     describe('drop', function () {
         it('returns a lazy array with n dropped', function () {
             var t = larr.all(larr.take(5, larr.drop(10, lseq)));
-            assert.deepEqual(t, [20, 21, 22, 23, 24, 25]);
+            assert.deepEqual(t, [20, 21, 22, 23, 24]);
         });
 
         it('dropping from an empty array yields and empty array', function () {
@@ -54,7 +60,7 @@ describe('seq-more', function () {
     describe('all', function () {
         it('resolves all possible values', function () {
             var t = larr.take(5, lseq);
-            assert.deepEqual(larr.all(t), [10, 11, 12, 13, 14, 15]);
+            assert.deepEqual(larr.all(t), [10, 11, 12, 13, 14]);
         });
 
         it('resolves normal arrays to normal arrays', function () {
@@ -65,7 +71,7 @@ describe('seq-more', function () {
     describe('last', function () {
         it('fetches the last value', function () {
             var t = larr.take(5, lseq);
-            assert.strictEqual(larr.last(t), 15);
+            assert.strictEqual(larr.last(t), 14);
         });
 
         it('returns undefined if the sequence is empty', function () {

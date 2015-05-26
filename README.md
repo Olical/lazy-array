@@ -18,7 +18,7 @@ var larr = require('lazy-array');
 var plainArray = ['foo', 'bar', 'baz'];
 
 /**
- * Creates a lazy sequence of all integers larger than n.
+ * Creates a lazy sequence of all integers greater or equal to n.
  *
  * @param {Number} n Starting integer.
  * @return {LazySequence}
@@ -38,6 +38,10 @@ larr.cons('pre', plainArray); // ['pre', 'foo', 'bar', 'baz']
 // Allows you to operate on infinite sequences of values which are only
 // calculated when requested.
 larr.nth(positiveNumbers(10), 15); // 25
+
+// You can take sections of that sequence and evaluate it to a plain array.
+var nums = positiveNumbers(1);
+larr.all(larr.take(3, larr.drop(5, nums))); // [6, 7, 8]
 ```
 
 ## Unlicenced

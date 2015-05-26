@@ -77,7 +77,7 @@ function second(list) {
  */
 function take(n, list) {
     return create(function () {
-        if (n >= 0) {
+        if (n >= 1) {
             return cons(first(list), take(n - 1, rest(list)));
         }
         else {
