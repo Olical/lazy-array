@@ -88,6 +88,10 @@ function nth(list, n) {
 
 /**
  * Returns a lazy array which is limited to the given length.
+ *
+ * @param {Number} n
+ * @param {*[]} list
+ * @return {*}
  */
 function take(n, list) {
     return create(function () {
