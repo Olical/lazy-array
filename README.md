@@ -1,4 +1,4 @@
-JavaScript lazy arrays, sort of like [Clojure's seqs][seqs]. Lazy sequences can be thought of being a bit like [a traditional list cons cell][cons-post].
+JavaScript lazy arrays, sort of like [Clojure's seqs][seqs]. Lazy sequences can be thought of being a bit like [a traditional Lisp cons cell][cons-post].
 
 ```bash
 # Fetch the dependencies.
