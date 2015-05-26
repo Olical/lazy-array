@@ -69,29 +69,11 @@ function second(list) {
 }
 
 /**
- * Fetches the nth result.
- *
- * @param {*[]} list
- * @param {Number} n
- * @return {*}
- */
-function nth(list, n) {
-    var cur = list;
-
-    // I would have made this recursive if JavaScript had tail call optimisations.
-    for (var i = 0; i < n; i++) {
-        cur = rest(cur);
-    }
-
-    return first(cur);
-}
-
-/**
  * Returns a lazy array which is limited to the given length.
  *
  * @param {Number} n
  * @param {*[]} list
- * @return {*}
+ * @return {*[]}
  */
 function take(n, list) {
     return create(function () {
@@ -102,6 +84,38 @@ function take(n, list) {
             return [];
         }
     });
+}
+
+/**
+ * Returns a lazy array which drops the first n results.
+ *
+ * @param {Number} n
+ * @param {*[]} list
+ * @return {*[]}
+ */
+function drop(n, list) {
+    return create(function () {
+        var prevFirst;
+
+        // I would have made this recursive if JavaScript had tail call optimisations.
+        while (n-- >= 0) {
+            prevFirst = first(list);
+            list = rest(list);
+        }
+
+        return cons(prevFirst, list);
+    });
+}
+
+/**
+ * Fetches the nth result.
+ *
+ * @param {*[]} list
+ * @param {Number} n
+ * @return {*}
+ */
+function nth(list, n) {
+    return first(drop(n, list));
 }
 
 /**
@@ -145,8 +159,9 @@ module.exports = {
     rest: rest,
     cons: cons,
     second: second,
-    nth: nth,
     take: take,
+    drop: drop,
+    nth: nth,
     all: all,
     last: last
 };

@@ -39,6 +39,18 @@ describe('seq-more', function () {
         });
     });
 
+    describe('drop', function () {
+        it('returns a lazy array with n dropped', function () {
+            var t = larr.all(larr.take(5, larr.drop(10, lseq)));
+            assert.deepEqual(t, [20, 21, 22, 23, 24, 25]);
+        });
+
+        it('dropping from an empty array yields and empty array', function () {
+            var t = larr.all(larr.drop(5, []));
+            assert.deepEqual(t, []);
+        });
+    });
+
     describe('all', function () {
         it('resolves all possible values', function () {
             var t = larr.take(5, lseq);
