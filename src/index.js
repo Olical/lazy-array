@@ -127,6 +127,17 @@ function all(list) {
     return results;
 }
 
+/**
+ * Fetches the last item in the sequence.
+ *
+ * @param {*[]} list
+ * @return {*}
+ */
+function last(list) {
+    var res = all(list);
+    return res[res.length - 1];
+}
+
 module.exports = {
     LazyArray: LazyArray,
     create: create,
@@ -136,5 +147,6 @@ module.exports = {
     second: second,
     nth: nth,
     take: take,
-    all: all
+    all: all,
+    last: last
 };

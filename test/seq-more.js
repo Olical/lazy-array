@@ -49,4 +49,15 @@ describe('seq-more', function () {
             assert.deepEqual(larr.all([0, 1, 2]), [0, 1, 2]);
         });
     });
+
+    describe('last', function () {
+        it('fetches the last value', function () {
+            var t = larr.take(5, lseq);
+            assert.equal(larr.last(t), 15);
+        });
+
+        it('returns null if the sequence is empty', function () {
+            assert.equal(larr.last([]), null);
+        });
+    });
 });
