@@ -3,7 +3,7 @@
 var larr = require('../..');
 
 /**
- * Creates a lazy sequence of all integers larger than n.
+ * Creates a lazy sequence of all integers greater or equal to n.
  *
  * @param {Number} n Starting integer.
  * @return {LazySequence}
