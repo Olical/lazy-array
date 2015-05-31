@@ -131,7 +131,6 @@
             return create(function () {
                 var prevFirst;
 
-                // I would have made this recursive if JavaScript had tail call optimisations.
                 while (n-- >= 0) {
                     prevFirst = first(list);
                     list = rest(list);
@@ -232,6 +231,26 @@
             });
         }
 
+        /**
+         * Reduces a sequence down to a single value using a function.
+         *
+         * @param {Function} fn
+         * @param {*[]} list
+         * @return {*[]}
+         */
+        function reduce(fn, init, list) {
+            var result = init;
+            var cur = list;
+            var head;
+
+            while (typeof (head = first(cur)) !== 'undefined') {
+                result = fn(result, head);
+                cur = rest(cur);
+            }
+
+            return result;
+        }
+
         return {
             LazyArray: LazyArray,
             create: create,
@@ -245,7 +264,8 @@
             all: all,
             last: last,
             map: map,
-            filter: filter
+            filter: filter,
+            reduce: reduce
         };
     });
 }(typeof module === 'object' && typeof define !== 'function'

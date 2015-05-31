@@ -106,4 +106,18 @@ describe('seq-more', function () {
             assert.deepEqual(f([]), []);
         });
     });
+
+    describe('reduce', function () {
+        it('can reduce a sequence to a value', function () {
+            function add(a, b) {
+                return a + b;
+            }
+
+            function f(n) {
+                return larr.reduce(add, 0, n);
+            }
+
+            assert.strictEqual(f([1, 2, 3, 4, 5]), 15);
+        });
+    });
 });
