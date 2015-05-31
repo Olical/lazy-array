@@ -3,21 +3,21 @@
 (function(define) {
     define(function () {
         /**
-        * Function that wraps the given generator function. Will be executed upon
-        * .fn().
-        *
-        * @class LazyArray
-        * @param {Function} fn Generator.
-        */
+         * Function that wraps the given generator function. Will be executed upon
+         * .fn().
+         *
+         * @class LazyArray
+         * @param {Function} fn Generator.
+         */
         function LazyArray(fn) {
             this._fn = fn;
         }
 
         /**
-        * Executes the contained function, caches the result.
-        *
-        * @return {*}
-        */
+         * Executes the contained function, caches the result.
+         *
+         * @return {*}
+         */
         LazyArray.prototype.fn = function () {
             if (!this.hasOwnProperty('_cache')) {
                 this._cache = this._fn();
@@ -27,30 +27,30 @@
         };
 
         /**
-        * Tests if the given value is a lazy array.
-        *
-        * @param {*} val
-        * @return {Boolean}
-        */
+         * Tests if the given value is a lazy array.
+         *
+         * @param {*} val
+         * @return {Boolean}
+         */
         LazyArray.isLazyArray = function isLazyArray(val) {
             return val instanceof LazyArray;
         };
 
         /**
-        * Constructs a lazy array instance.
-        *
-        * @param {Function} fn Generator.
-        * @return {*}
-        */
+         * Constructs a lazy array instance.
+         *
+         * @param {Function} fn Generator.
+         * @return {*}
+         */
         function create(fn) {
             return new LazyArray(fn);
         }
         /**
-        * Get the first item in an array.
-        *
-        * @param {*[]} list
-        * @return {*} First item.
-        */
+         * Get the first item in an array.
+         *
+         * @param {*[]} list
+         * @return {*} First item.
+         */
         function first(list) {
             if (LazyArray.isLazyArray(list)) {
                 return list.fn()[0];
@@ -61,11 +61,11 @@
         }
 
         /**
-        * Get the tail of the array.
-        *
-        * @param {*[]} list
-        * @return {*[]} Tail.
-        */
+         * Get the tail of the array.
+         *
+         * @param {*[]} list
+         * @return {*[]} Tail.
+         */
         function rest(list) {
             if (LazyArray.isLazyArray(list)) {
                 return list.fn()[1];
@@ -76,13 +76,13 @@
         }
 
         /**
-        * Constructs a new array by prepending the item on the list. When given a
-        * LazyArray instance to cons onto, it will return a value/LazyArray pair.
-        *
-        * @param {*} item
-        * @param {*[]} list
-        * @return {*[]} Original list with the item at the front.
-        */
+         * Constructs a new array by prepending the item on the list. When given a
+         * LazyArray instance to cons onto, it will return a value/LazyArray pair.
+         *
+         * @param {*} item
+         * @param {*[]} list
+         * @return {*[]} Original list with the item at the front.
+         */
         function cons(item, list) {
             if (LazyArray.isLazyArray(list)) {
                 return [item, list];
@@ -93,11 +93,11 @@
         }
 
         /**
-        * Fetches the second head.
-        *
-        * @param {*[]} list
-        * @return {*} Second item.
-        */
+         * Fetches the second head.
+         *
+         * @param {*[]} list
+         * @return {*} Second item.
+         */
         function second(list) {
             return first(rest(list));
         }
@@ -121,12 +121,12 @@
         }
 
         /**
-        * Returns a lazy array which drops the first n results.
-        *
-        * @param {Number} n
-        * @param {*[]} list
-        * @return {*[]}
-        */
+         * Returns a lazy array which drops the first n results.
+         *
+         * @param {Number} n
+         * @param {*[]} list
+         * @return {*[]}
+         */
         function drop(n, list) {
             return create(function () {
                 var prevFirst;
@@ -153,15 +153,15 @@
         }
 
         /**
-    * Realises all value in a lazy sequence. Will stop when there's nothing else
-        * to resolve. Be careful, this will run forever if the sequence keeps
-        * returning more lazy sequences.
-        *
-        * Will stop when first is undefined.
-        *
-        * @param {*[]} list
-        * @return {*[]}
-        */
+         * Realises all value in a lazy sequence. Will stop when there's
+         * nothing else to resolve. Be careful, this will run forever if the
+         * sequence keeps returning more lazy sequences.
+         *
+         * Will stop when first is undefined.
+         *
+         * @param {*[]} list
+         * @return {*[]}
+         */
         function all(list) {
             var results = [];
             var cur = list;
@@ -176,11 +176,11 @@
         }
 
         /**
-        * Fetches the last item in the sequence.
-        *
-        * @param {*[]} list
-        * @return {*}
-        */
+         * Fetches the last item in the sequence.
+         *
+         * @param {*[]} list
+         * @return {*}
+         */
         function last(list) {
             var res = all(list);
             return res[res.length - 1];
