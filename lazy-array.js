@@ -186,6 +186,26 @@
             return res[res.length - 1];
         }
 
+        /**
+         * Maps the list over a function.
+         *
+         * @param {Function} fn
+         * @param {*[]} list
+         * @return {*[]}
+         */
+        function map(fn, list) {
+            return create(function () {
+                var head = first(list);
+
+                if (typeof head !== 'undefined') {
+                    return cons(fn(head), map(fn, rest(list)));
+                }
+                else {
+                    return [];
+                }
+            });
+        }
+
         return {
             LazyArray: LazyArray,
             create: create,
@@ -197,7 +217,8 @@
             drop: drop,
             nth: nth,
             all: all,
-            last: last
+            last: last,
+            map: map
         };
     });
 }(typeof module === 'object' && typeof define !== 'function'

@@ -78,4 +78,14 @@ describe('seq-more', function () {
             assert.strictEqual(larr.last([]), undefined);
         });
     });
+
+    describe('map', function () {
+        it('maps a sequence over a function', function () {
+            function inc(n) {
+                return n + 1;
+            }
+
+            assert.deepEqual(larr.all(larr.map(inc, [0, 1, 2])), [1, 2, 3]);
+        });
+    });
 });
