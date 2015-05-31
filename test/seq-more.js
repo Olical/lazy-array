@@ -88,4 +88,22 @@ describe('seq-more', function () {
             assert.deepEqual(larr.all(larr.map(inc, [0, 1, 2])), [1, 2, 3]);
         });
     });
+
+    describe('filter', function () {
+        it('removes values that do not pass a predicate', function () {
+            function even(n) {
+                return n % 2 === 0;
+            }
+
+            function f(n) {
+                return larr.all(larr.filter(even, n));
+            }
+
+            assert.deepEqual(f([2, 3, 4]), [2, 4]);
+            assert.deepEqual(f([1, 2, 3, 4, 5, 6]), [2, 4, 6]);
+            assert.deepEqual(f([2, 2, 3, 2]), [2, 2, 2]);
+            assert.deepEqual(f([5]), []);
+            assert.deepEqual(f([]), []);
+        });
+    });
 });

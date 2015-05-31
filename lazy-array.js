@@ -206,6 +206,32 @@
             });
         }
 
+        /**
+         * Filters out values that do not pass a predicate function.
+         *
+         * @param {Function} fn
+         * @param {*[]} list
+         * @return {*[]}
+         */
+        function filter(fn, list) {
+            return create(function () {
+                var head = first(list);
+                var tail = rest(list);
+
+                if (typeof head !== 'undefined') {
+                    if (fn(head)) {
+                        return cons(head, filter(fn, tail));
+                    }
+                    else {
+                        return cons(first(tail), filter(fn, rest(tail)));
+                    }
+                }
+                else {
+                    return [];
+                }
+            });
+        }
+
         return {
             LazyArray: LazyArray,
             create: create,
@@ -218,7 +244,8 @@
             nth: nth,
             all: all,
             last: last,
-            map: map
+            map: map,
+            filter: filter
         };
     });
 }(typeof module === 'object' && typeof define !== 'function'
