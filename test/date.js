@@ -37,4 +37,19 @@ describe('date', function () {
         var future = larr.nth(d, 3);
         assert.strictEqual(future.getTime(), new Date('1994 Jan 30').getTime());
     });
+
+    it('should allow me to map a sequence of dates to strings', function () {
+        function str(date) {
+            return date.toDateString();
+        }
+
+        var days = larr.all(larr.map(str, larr.take(3, d)));
+        var expected = [
+            'Thu Jan 27 1994',
+            'Fri Jan 28 1994',
+            'Sat Jan 29 1994'
+        ];
+
+        assert.deepEqual(days, expected);
+    });
 });
