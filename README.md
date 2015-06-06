@@ -1,3 +1,5 @@
+# lazy-array [![Join the chat at https://gitter.im/Wolfy87/lazy-array](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Wolfy87/lazy-array?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![npm version](https://badge.fury.io/js/lazy-array.svg)](http://badge.fury.io/js/lazy-array)
+
 JavaScript lazy arrays, sort of like [Clojure's seqs][seqs]. Lazy sequences can be thought of being a bit like [a traditional Lisp cons cell][cons-post].
 
 ```bash
